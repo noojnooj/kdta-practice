@@ -6,9 +6,32 @@
   <title>Document</title>
 </head>
 <body>
-  <div>
-    <h1>Hello, World!</h1>
-    <p>나의 공간입니다.</p>
-  </div>
+<div id="root">
+  <ul>
+    <li data-ukjae="손정">피카츄</li>
+    <li data-ukjae="해진">라이츄</li>
+    <li data-ukjae="혜민">파이리</li>
+  </ul>
+
+<script>
+  const root = document.getElementById("root");
+  const ul = root.children[0];
+  console.log(ul);
+
+  ul.addEventListener("click", (event) => {
+    const datasetTarget = event.target.dataset.ukjae;
+
+    for (let i = 0; i < ul.children.length; i++) {
+      if (ul.children[i].dataset.ukjae === "해진") {
+        ul.children[i].style.display = "block";
+        ul.children[i].style.color = "blue";
+      } else {
+        ul.children[i].style.display = "none";
+      }
+    }
+  });
+</script>
+</div>
+
 </body>
 </html>
